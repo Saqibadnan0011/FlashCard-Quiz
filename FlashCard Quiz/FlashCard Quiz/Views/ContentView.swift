@@ -14,13 +14,13 @@ struct ContentView: View {
                 Text("FlashCard Quiz")
                     .lilacTitle()
                 Text("Are you ready to test out your knowledge?")
-                    .foregroundColor(Color("AccentColor").opacity(0.6))
+                    .foregroundColor(Color("AccentColor").opacity(0.8))
             }
             LetGoButton(text: "Let's Go")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
-        .background(Gradient(colors: [.purple, .pink]))
+        .background(Color.black)
     }
 }
 
