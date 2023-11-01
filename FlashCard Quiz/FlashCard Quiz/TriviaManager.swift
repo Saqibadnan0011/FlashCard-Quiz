@@ -4,28 +4,31 @@
 //
 //  Created by apple on 01/11/2023.
 //
-
 import Foundation
+import SwiftUI
 
-class FlashManager: ObservableObject {
-    private (set) var flash: [Flash.Result] = []
+class TriviaManager: ObservableObject {
+    private (set) var trivia: [Trivia.Result] = []
     @Published private (set) var length = 0
-    
     @Published private (set) var index = 0
+    
     @Published private (set) var reachedEnd = false
     @Published private (set) var answerSelected = false
-    @Published private (set) var Question: AttributedString = ""
+    
+    @Published private (set) var question: AttributedString = ""
     @Published private (set) var answerChoices: [Answer] = []
+    
     @Published private (set) var progress: CGFloat = 0.00
+    @Published private (set) var score = 0
     
     init() {
         Task.init {
-            await fetchFlash()
+            await fetchTrivia()
         }
     }
     
-    func fetchFlash() async {
-        guard let url = URL(string: "https://opentdb.com/api.php?amount=10&category=18") else { fatalError("URL Missing")}
+    func fetchTrivia() async {
+        guard let url = URL(string: "https://opentdb.com/api.php?amount=10&category=23&difficulty=medium") else { fatalError("URL Missing")}
         
         let urlRequest = URLRequest(url: url)
         do {
@@ -34,12 +37,18 @@ class FlashManager: ObservableObject {
             guard (response as? HTTPURLResponse)?.statusCode == 200 else {fatalError("Error while fetching")}
             
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             //decoder.dateDecodingStrategy = .convertToSnakeCase
-            let decodedData = try decoder.decode(Flash.self, from: data)
+            let decodedData = try decoder.decode(Trivia.self, from: data)
             
             DispatchQueue.main.async {
-                self.flash = decodedData.result
-                self.length = self.flash.count
+                self.index = 0
+                self.score = 0
+                self.progress = 0.00
+                self.reachedEnd = false
+                
+                self.trivia = decodedData.results
+                self.length = self.trivia.count
                 self.setQuestion()
             }
         } catch {
@@ -60,7 +69,13 @@ class FlashManager: ObservableObject {
         if index < length {
             let currentTriviaQuestion = trivia [index]
             question = currentTriviaQuestion.formattedQuestion
-            answerChoices = currentTriviaQuestion.answer
+            answerChoices = currentTriviaQuestion.answers
+        }
+    }
+    func selectAnswer(answer: Answer) {
+        answerSelected = true
+        if answer.isCorrect {
+            score += 1
         }
     }
 }
