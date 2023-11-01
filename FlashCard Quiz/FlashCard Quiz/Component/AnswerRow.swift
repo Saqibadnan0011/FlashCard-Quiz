@@ -33,10 +33,10 @@ struct AnswerRow: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(Color("AccentColor"))
-        .background(.white)
+        .foregroundColor(isSelected ? Color("AccentColor") : .black)
+        .background(Color(red: 167 / 255, green: 130 / 255, blue: 149 / 255))
         .cornerRadius(10)
-        .shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
+        .shadow(color: isSelected ? ( answer.isCorrect ? green : red ) : .gray, radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
             isSelected = true
         }
