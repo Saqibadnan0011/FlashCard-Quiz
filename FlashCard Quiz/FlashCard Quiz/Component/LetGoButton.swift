@@ -17,7 +17,8 @@ struct LetGoButton: View {
             .padding(.horizontal)
             .background(background)
             .cornerRadius(10)
-            .shadow(radius: 10)
+            .shadow(color: Color(.systemPink),radius: 5)
+            //.shadow(radius: 10)
     }
 }
 
