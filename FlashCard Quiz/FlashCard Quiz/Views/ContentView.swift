@@ -9,18 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack (spacing: 40) {
-            VStack(spacing: 20) {
-                Text("FlashCard Quiz")
-                    .lilacTitle()
-                Text("Are you ready to test out your knowledge?")
-                    .foregroundColor(Color("AccentColor").opacity(0.8))
+        NavigationView {
+            VStack (spacing: 40) {
+                VStack(spacing: 20) {
+                    Text("FlashCard Quiz")
+                        .lilacTitle()
+                    Text("Are you ready to test out your knowledge?")
+                        .foregroundColor(Color("AccentColor").opacity(0.8))
+                }
+                NavigationLink {
+                    FlashView()
+                } label: {
+                    LetGoButton(text: "Let's Go")
+                }
+                //LetGoButton(text: "Let's Go")
             }
-            LetGoButton(text: "Let's Go")
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea(.all)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea(.all)
         .background(Color.black)
+        }
     }
 }
 
