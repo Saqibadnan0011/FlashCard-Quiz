@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct QuestionView: View {
+    
+    @EnvironmentObject var triviaManager: TriviaManager
+    
     var body: some View {
         VStack (spacing: 40) {
             HStack {
@@ -15,23 +18,29 @@ struct QuestionView: View {
                     .lilacTitle()
                 Spacer()
                 
-                Text("1 out of 10")
+                Text("\(triviaManager.index + 1) out of \(triviaManager.length)")
                     .foregroundColor(Color("AccentColor"))
                     .fontWeight(.heavy)
             }
-            ProgressBar(progress: 40)
+            ProgressBar(progress: triviaManager.progress)
             
             VStack (alignment: .leading, spacing: 20) {
-                Text("Which of the follwing countries is within Eurozone but outside of the Schengen Area?")
+                Text(triviaManager.question)
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.gray)
                 
-                AnswerRow(answer: Answer(text: "false", isCorrect: true))
-                AnswerRow(answer: Answer(text: "true", isCorrect: false))
+                ForEach(triviaManager.answerChoices, id: \.id) { answer in
+                    AnswerRow(answer: answer)
+                        .environmentObject(triviaManager)
+                }
             }
-            
-            LetGoButton(text: "Next")
+            Button {
+                triviaManager.goToNextQuestion()
+            } label: {
+                LetGoButton(text: "Next")
+            }
+            .disabled(!triviaManager.answerSelected)
             Spacer()
         }
         .padding()
@@ -44,5 +53,6 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionView()
+            .environmentObject(TriviaManager())
     }
 }
