@@ -18,7 +18,7 @@
 		185C97282AF281D500637791 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C97272AF281D500637791 /* Answers.swift */; };
 		185C972A2AF2830900637791 /* AnswerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C97292AF2830900637791 /* AnswerRow.swift */; };
 		18B22E1D2AF2BE9800182E0F /* FlashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22E1C2AF2BE9800182E0F /* FlashView.swift */; };
-		18B22E1F2AF2BFA500182E0F /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22E1E2AF2BFA500182E0F /* Flash.swift */; };
+		18B22E1F2AF2BFA500182E0F /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22E1E2AF2BFA500182E0F /* Trivia.swift */; };
 		18B22E212AF2C55D00182E0F /* TriviaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22E202AF2C55D00182E0F /* TriviaManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 		185C97272AF281D500637791 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
 		185C97292AF2830900637791 /* AnswerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRow.swift; sourceTree = "<group>"; };
 		18B22E1C2AF2BE9800182E0F /* FlashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashView.swift; sourceTree = "<group>"; };
-		18B22E1E2AF2BFA500182E0F /* Flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
+		18B22E1E2AF2BFA500182E0F /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
 		18B22E202AF2C55D00182E0F /* TriviaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				185C97272AF281D500637791 /* Answers.swift */,
-				18B22E1E2AF2BFA500182E0F /* Flash.swift */,
+				18B22E1E2AF2BFA500182E0F /* Trivia.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18B22E1F2AF2BFA500182E0F /* Flash.swift in Sources */,
+				18B22E1F2AF2BFA500182E0F /* Trivia.swift in Sources */,
 				185C97282AF281D500637791 /* Answers.swift in Sources */,
 				185C97232AF2769100637791 /* QuestionView.swift in Sources */,
 				185C972A2AF2830900637791 /* AnswerRow.swift in Sources */,
