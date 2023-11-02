@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var triviaManager = TriviaManager()
+    
     var body: some View {
         NavigationView {
             VStack (spacing: 40) {
@@ -19,14 +22,14 @@ struct ContentView: View {
                 }
                 NavigationLink {
                     FlashView()
+                        .environmentObject(triviaManager)
                 } label: {
                     LetGoButton(text: "Let's Go")
                 }
-                //LetGoButton(text: "Let's Go")
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .ignoresSafeArea(.all)
-        .background(Color.black)
+            .background(Color.black)
         }
     }
 }
