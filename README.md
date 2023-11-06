@@ -47,6 +47,7 @@ https://github.com/Saqibadnan0011/Thread-Clone-Swift-App/assets/79377722/519440b
 <p>Q: Which API I used for this Mobile app?</p>
 <p>A: I used Trivia API for my mobile application to get quiz questions and answer</p>
 
+<h1>FeedBack</h1>
 
-
+<p>Give a 🌟 It will be appreciated</p>
 
