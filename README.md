@@ -49,5 +49,5 @@ https://github.com/Saqibadnan0011/Thread-Clone-Swift-App/assets/79377722/519440b
 
 <h1>FeedBack</h1>
 
-<p>Give a 🌟 It will be appreciated</p>
+<p>Give a 🌟 It will be appreciated...</p>
 
